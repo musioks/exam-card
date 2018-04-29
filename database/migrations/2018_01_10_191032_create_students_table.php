@@ -23,8 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('gender');
             $table->string('religion');
             $table->integer('form_id')->unsigned();
-            $table->integer('stream_id')->unsigned();
-            $table->integer('kcpe_entry');
+            $table->integer('course_id')->unsigned();
             $table->string('parent_name');
             $table->string('parent_contact');
             $table->string('disability');
@@ -32,7 +31,7 @@ class CreateStudentsTable extends Migration
             $table->boolean('boarding')->default(0);
             $table->string('photo')->default('student.png');
             $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
-            $table->foreign('stream_id')->references('id')->on('streams')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
         });
     }
