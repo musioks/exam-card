@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Register - Robust Bootstrap Admin Template</title>
+    <title>Register - Exam Card Processing System</title>
     <link rel="apple-touch-icon" sizes="60x60" href="../../../app-assets/images/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="../../../app-assets/images/ico/apple-icon-76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="../../../app-assets/images/ico/apple-icon-120.png">
@@ -30,7 +30,7 @@
     <div class="card border-grey border-lighten-3 px-2 py-2 row mb-0">
         <div class="card-header no-border">
             <div class="card-title text-xs-center">
-                <img src="../../../app-assets/images/logo/robust-logo-dark.png" alt="branding logo">
+                <h1 class="text-info">JKUAT EXAM CARD PROCESSING SYSTEM</h1>
             </div>
             <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Register with Robust</span></h6>
         </div>
