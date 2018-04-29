@@ -19,13 +19,13 @@ class CreateInvoicesTable extends Migration
             $table->integer('year');
             $table->integer('term_id')->unsigned();
             $table->integer('form_id')->unsigned();
-            $table->integer('stream_id')->unsigned();
+            $table->integer('course_id')->unsigned();
             $table->integer('amount');
             $table->integer('balance');
             $table->foreign('adm_no')->references('adm_no')->on('students')->onDelete('cascade');
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
             $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
-            $table->foreign('stream_id')->references('id')->on('streams')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
         });
     }

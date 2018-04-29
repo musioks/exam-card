@@ -40,10 +40,10 @@ Route::prefix('/profile')->middleware('auth')->group(function(){
 Route::prefix('settings')->middleware('auth')->group(function(){
     Route::get('/','Settings\SettingsController@index');
     Route::post('/','Settings\SettingsController@store');
-    Route::get('/streams','Settings\StreamController@index');
-    Route::post('/streams','Settings\StreamController@store');
-    Route::patch('/update-stream','Settings\StreamController@update');
-    Route::get('/delete-stream/{id}','Settings\StreamController@destroy');
+    Route::get('/courses','Settings\CourseController@index');
+    Route::post('/courses','Settings\CourseController@store');
+    Route::patch('/update-course','Settings\CourseController@update');
+    Route::get('/delete-course/{id}','Settings\CourseController@destroy');
     Route::get('/forms','Settings\FormController@index');
     Route::post('/forms','Settings\FormController@store');
     Route::patch('/update-form','Settings\FormController@update');

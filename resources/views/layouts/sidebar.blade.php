@@ -8,7 +8,7 @@
 </li>
 <li class=" navigation-header"><span data-i18n="nav.category.layouts">Staff</span><i data-toggle="tooltip" data-placement="right" data-original-title="Layouts" class="icon-ellipsis icon-ellipsis"></i>
 </li>
-<li class="{{Request::is('staff/teaching/staff') ? 'active': ''}} nav-item"><a href="{{ url('/staff/teaching/staff') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Teachers</span></a>
+<li class="{{Request::is('staff/teaching/staff') ? 'active': ''}} nav-item"><a href="{{ url('/staff/teaching/staff') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Lecturers</span></a>
 </li>
 <li class="{{Request::is('employees/employee') ? 'active': ''}} nav-item"><a href="{{ url('/employees/employee') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Non-Teaching Staff</span></a>
 </li>
@@ -18,36 +18,11 @@
 
 <li class="{{Request::is('students') ? 'active': ''}} nav-item"><a href="{{url('/students')}}"><i class="icon-users"></i><span data-i18n="nav.changelog.main" class="menu-title">Manage Students</span></a>
 </li>
-<li class="{{Request::is('disciplines/index') ? 'active': ''}} nav-item"><a href="{{ url('/disciplines/index') }}"><i class="icon-ios-filing-outline"></i><span data-i18n="nav.changelog.main" class="menu-title">Discipline</span></a>
-</li>
-<li class=" nav-item"><a href="changelog.html"><i class="icon-copy"></i><span data-i18n="nav.changelog.main" class="menu-title">Students Promotion</span></a>
-</li>
 
 <li class=" navigation-header"><span data-i18n="nav.category.pages">Examination</span><i data-toggle="tooltip" data-placement="right" data-original-title="Pages" class="icon-ellipsis icon-ellipsis"></i>
 </li>
-<li class=" nav-item"><a href="#"><i class="icon-ios-pricetag-outline"></i><span data-i18n="nav.project.main" class="menu-title">Submit Scores</span></a>
-<ul class="menu-content">
-  <li class="{{Request::is('exams/individual') ? 'active': ''}}"><a href="{{url('/exams/individual')}}" data-i18n="nav.project.project_summary" class="menu-item">Individual student</a>
-  <li class="{{Request::is('exams/class') ? 'active': ''}}"><a href="{{url('/exams/class')}}" data-i18n="nav.project.project_summary" class="menu-item">Class Marks</a>
-  </li>
-</ul>
-</li>
-<li class=" nav-item"><a href="#"><i class="icon-ios-paper-outline"></i><span data-i18n="nav.project.main" class="menu-title">View  Results</span></a>
-<ul class="menu-content">
-  <li class="{{Request::is('/results/student') ? 'active': ''}}"><a href="{{url('/results/student')}}" data-i18n="nav.project.project_summary" class="menu-item"> Student Results</a>
-  <li class="{{Request::is('/results/stream') ? 'active': ''}}"><a href="{{url('/results/stream')}}" data-i18n="nav.project.project_summary" class="menu-item">Stream Results</a>
-  </li>
-  <li class="{{Request::is('/results/class') ? 'active': ''}}"><a href="{{url('/results/class')}}" data-i18n="nav.project.project_summary" class="menu-item">Class Results</a>
-  </li>
-</ul>
-</li>
-<li class=" nav-item"><a href="#"><i class="icon-file-subtract"></i><span data-i18n="nav.invoice.main" class="menu-title">Reports</span></a>
-<ul class="menu-content">
-  <li><a href="invoice-summary.html" data-i18n="nav.invoice.invoice_summary" class="menu-item">Invoice Summary</a>
-  </li>
-</ul>
-</li>
-<li class="{{Request::is('exams/grading') ? 'active': ''}} nav-item"><a href="{{ url('/exams/grading') }}"><i class="icon-bookmark-o"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Grading System</span></a>
+
+<li class="{{Request::is('exams/grading') ? 'active': ''}} nav-item"><a href="{{ url('/exams/grading') }}"><i class="icon-bookmark-o"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Generate Exam Cards</span></a>
 </li>
 
 
@@ -60,25 +35,20 @@
 <li class="{{Request::is('fees/payment') ? 'active': ''}}"><a href="{{ url('/fees/payment') }}" data-i18n="nav.cards.card_statistics" class="menu-item">Record Fees</a>
   </li>
   <li class="{{Request::is('fees/feeperclass') ? 'active': ''}}"><a href="{{ url('/fees/feeperclass') }}" data-i18n="nav.cards.card_statistics" class="menu-item">payment per class</a>
-  <li class="{{Request::is('fees/studentfeeregister') ? 'active': ''}}"><a href="{{ url('/fees/studentfeeregister') }}" data-i18n="nav.cards.card_statistics" class="menu-item">Student fee register</a>
-  </li>
-<li class="{{Request::is('fees/daily') ? 'active': ''}}"><a href="{{ url('/fees/daily') }}" data-i18n="nav.cards.card_weather" class="menu-item">Daily Fees</a>
-  </li>
+
 <li class="{{Request::is('fees/feesFilter') ? 'active': ''}}"><a href="{{ url('/fees/feesFilter') }}" data-i18n="nav.cards.card_weather" class="menu-item">Filter Fees</a>
   </li>
 </ul>
 </li>
-<li class="{{Request::is('payments/allPayments') ? 'active': ''}} nav-item"><a href="{{ url('/payments/allPayments') }}"><i class="icon-compass3"></i><span data-i18n="nav.content.main" class="menu-title">Manage Payments</span></a>
-</li>
-<li class="{{Request::is('finance/report') ? 'active': ''}} nav-item"><a href="{{ url('/finance/report') }}"><i class="icon-grid2"></i><span data-i18n="nav.components.main" class="menu-title">Financial Summary</span></a>
-</li>
+
+
 <li class=" navigation-header"><span data-i18n="nav.category.forms">Settings</span><i data-toggle="tooltip" data-placement="right" data-original-title="Forms" class="icon-ellipsis icon-ellipsis"></i>
 </li>
 <li class="{{Request::is('settings') ? 'active': ''}} nav-item"><a href="{{url('/settings')}}"><i class="icon-wrench
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Main Settings</span></a>
 </li>
-<li class="{{Request::is('settings/streams') ? 'active': ''}} nav-item"><a href="{{url('/settings/streams')}}"><i class="icon-wpforms
-"></i><span data-i18n="nav.changelog.main" class="menu-title">Streams</span></a>
+<li class="{{Request::is('settings/courses') ? 'active': ''}} nav-item"><a href="{{url('/settings/courses')}}"><i class="icon-wpforms
+"></i><span data-i18n="nav.changelog.main" class="menu-title">Courses</span></a>
 </li>
 <li class="{{Request::is('settings/forms') ? 'active': ''}} nav-item"><a href="{{url('/settings/forms')}}"><i class="icon-paper
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Classes</span></a>
