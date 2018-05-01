@@ -7,15 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 <meta name="author" content="Ryzonet">
 <title>@yield('title')</title>
-<link rel="apple-touch-icon" sizes="60x60" href="{{ asset('app-assets/images/ico/apple-icon-60.png')}}">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('app-assets/images/ico/apple-icon-76.png')}}">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('app-assets/images/ico/apple-icon-120.png')}}">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('app-assets/images/ico/apple-icon-152.png')}}">
-
 <link rel="shortcut icon" type="image/png" href="{{ asset('app-assets/images/ico/favicon-32.png')}}">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
 <!-- Styles-->
@@ -60,7 +52,7 @@
 
 
 <footer class="footer footer-static footer-light navbar-border">
-<p class="clearfix text-muted text-sm-center mb-0 px-2"><span class=" d-xs-block d-md-inline-block">Copyright  &copy; {{ date('Y') }} <a href="http://www.karunga.sc.ke" target="_blank" class="text-bold-800 grey darken-2">School </a>, All rights reserved. </span></p>
+<p class="clearfix text-muted text-sm-center mb-0 px-2"><span class=" d-xs-block d-md-inline-block">&copy; {{ date('Y') }} <a href="#" target="_blank" class="text-bold-800 grey darken-2">Exam card processing system </a>, All rights reserved. </span></p>
 </footer>
 <!--  ************* Javascripts ************ -->
 @include('layouts.scripts')

@@ -35,7 +35,7 @@
 											<select id="projectinput5" name="form_id" class="form-control">
 												<option value="">---------select class---------</option>
 												@foreach($classes as $class)
-	                        <option value="{{$class->id}}">Form {{$class->form}}</option>
+	                        <option value="{{$class->id}}">{{$class->form}}</option>
 	                      @endforeach
 											</select>
 											@if($errors->has('class'))
@@ -45,11 +45,11 @@
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<label for="projectinput5">Term</label>
+											<label for="projectinput5">Session</label>
 											<select id="projectinput5" name="term_id" class="form-control">
-												<option value="">---------select term---------</option>
+												<option value="">---------select Session---------</option>
 												@foreach($term as $term)
-	                        <option value="{{$term->id}}">Term {{$term->term}}</option>
+	                        <option value="{{$term->id}}">{{$term->term}}</option>
 	                      @endforeach
 											</select>
 											@if($errors->has('term'))

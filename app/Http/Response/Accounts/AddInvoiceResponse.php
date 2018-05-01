@@ -11,7 +11,7 @@ class AddInvoiceResponse implements Responsable
 	{
 			$classes=\App\Settings\Form::all();
 		  $term=\App\Settings\Term::all();
-		  $streams=\App\Settings\Stream::all();
-		  return view('accounts.addinvoice',['classes'=>$classes,'term'=>$term,'streams'=>$streams]);
+		  $courses=\App\Settings\Course::all();
+		  return view('accounts.addinvoice',['classes'=>$classes,'term'=>$term,'courses'=>$courses]);
 	}
 }
