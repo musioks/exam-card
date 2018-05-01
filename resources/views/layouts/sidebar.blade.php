@@ -6,12 +6,12 @@
 <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
 <li class="{{Request::is('dashboard') ? 'active': ''}}"><a href="{{ url('/dashboard') }}"><i class="icon-home3"></i><span data-i18n="nav.dash.ecommerce" class="menu-title">Dashboard</span></a>
 </li>
-<li class=" navigation-header"><span data-i18n="nav.category.layouts">Staff</span><i data-toggle="tooltip" data-placement="right" data-original-title="Layouts" class="icon-ellipsis icon-ellipsis"></i>
+{{-- <li class=" navigation-header"><span data-i18n="nav.category.layouts">Staff</span><i data-toggle="tooltip" data-placement="right" data-original-title="Layouts" class="icon-ellipsis icon-ellipsis"></i>
 </li>
 <li class="{{Request::is('staff/teaching/staff') ? 'active': ''}} nav-item"><a href="{{ url('/staff/teaching/staff') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Lecturers</span></a>
 </li>
 <li class="{{Request::is('employees/employee') ? 'active': ''}} nav-item"><a href="{{ url('/employees/employee') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Non-Teaching Staff</span></a>
-</li>
+</li> --}}
 
 <li class=" navigation-header"><span data-i18n="nav.category.general">Students</span><i data-toggle="tooltip" data-placement="right" data-original-title="General" class="icon-ellipsis icon-ellipsis"></i>
 </li>

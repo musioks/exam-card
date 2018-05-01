@@ -31,7 +31,11 @@
     <div class="card border-grey border-lighten-3 px-2 py-2 row mb-0">
         <div class="card-header no-border">
             <div class="card-title text-xs-center">
-<h1 class="text-info">JKUAT EXAM CARD PROCESSING SYSTEM</h1>
+                @isset($setting)
+                <img src="{{asset('images/'.$setting->logo)}}" alt="branding logo">
+                @else
+                 <img src="{{asset('images/logo.png')}}" alt="branding logo">
+                @endisset
             </div>
             <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Login to access system</span></h6>
         </div>
