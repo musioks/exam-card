@@ -50,19 +50,11 @@
 <li class="{{Request::is('settings/courses') ? 'active': ''}} nav-item"><a href="{{url('/settings/courses')}}"><i class="icon-wpforms
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Courses</span></a>
 </li>
+<li class="{{Request::is('/settings/units') ? 'active': ''}} nav-item"><a href="{{url('/settings/units')}}"><i class="icon-books
+"></i><span data-i18n="nav.changelog.main" class="menu-title">Units</span></a>
+</li>
 <li class="{{Request::is('settings/forms') ? 'active': ''}} nav-item"><a href="{{url('/settings/forms')}}"><i class="icon-paper
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Classes</span></a>
-</li>
-<li class=" nav-item"><a href="#"><i class="icon-ios-paper-outline"></i><span data-i18n="nav.form_wizard.main" class="menu-title">Subjects</span></a>
-<ul class="menu-content">
-  <li class="{{Request::is('settings/subject-groups') ? 'active': ''}}"><a href="{{url('/settings/subject-groups')}}" data-i18n="nav.form_wizard.form_wizard_circle_style" class="menu-item">Subject Groups</a>
-  </li>
-  <li class="{{Request::is('settings/subjects') ? 'active': ''}}"><a href="{{url('/settings/subjects')}}" data-i18n="nav.form_wizard.form_wizard_notification_style" class="menu-item">Subjects</a>
-  </li>
-</ul>
-</li>
-<li class="{{Request::is('settings/exams') ? 'active': ''}} nav-item"><a href="{{url('/settings/exams')}}"><i class="icon-books
-"></i><span data-i18n="nav.changelog.main" class="menu-title">Exam Types</span></a>
 </li>
 <li class="{{Request::is('settings/voteheads') ? 'active': ''}} nav-item"><a href="{{url('/settings/voteheads')}}"><i class="icon-money
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Voteheads</span></a>

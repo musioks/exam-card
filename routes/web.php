@@ -48,14 +48,10 @@ Route::prefix('settings')->middleware('auth')->group(function(){
     Route::post('/forms','Settings\FormController@store');
     Route::patch('/update-form','Settings\FormController@update');
     Route::get('/delete-form/{id}','Settings\FormController@destroy');
-    Route::get('/subject-groups','Settings\SubGroupController@index');
-    Route::post('/subject-groups','Settings\SubGroupController@store');
-    Route::patch('/update-group','Settings\SubGroupController@update');
-    Route::get('/delete-group/{id}','Settings\SubGroupController@destroy');
-    Route::get('/subjects','Settings\SubjectController@index');
-    Route::post('/subjects','Settings\SubjectController@store');
-    Route::patch('/update-subject','Settings\SubjectController@update');
-    Route::get('/delete-subject/{id}','Settings\SubjectController@destroy');
+    Route::get('/units','Settings\SubjectController@index');
+    Route::post('/units','Settings\SubjectController@store');
+    Route::patch('/update-unit','Settings\SubjectController@update');
+    Route::get('/delete-unit/{id}','Settings\SubjectController@destroy');
     Route::get('/staff-category','Staff\CategoryController@index');
     Route::post('/staff-category','Staff\CategoryController@store');
     Route::patch('/update-category','Staff\CategoryController@update');
