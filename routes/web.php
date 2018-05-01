@@ -89,25 +89,6 @@ Route::prefix('exams')->middleware('auth')->group(function(){
    Route::post('/grading','Exams\GradingController@store');
    Route::patch('/update-grading','Exams\GradingController@update');
    Route::get('/delete-grading/{id}','Exams\GradingController@destroy');
-   Route::get('/individual','Exams\MarksController@individual');
-   Route::post('/individual','Exams\MarksController@student_marks');
-   Route::get('/class','Exams\MarksController@view_class');
-   Route::get('/get-students','Exams\MarksController@get_students');
-   Route::post('/post-marks','Exams\MarksController@class_marks');
-
-
-});
-// ************ End ****************************//
-// ************ Results Routes ****************************//
-Route::prefix('results')->middleware('auth')->group(function(){
-   Route::get('/student','Exams\ResultController@student');
-   Route::post('/student-results','Exams\ResultController@student_results');
-   Route::get('/stream','Exams\ResultController@stream');
-   Route::get('/class','Exams\ResultController@class');
- 
-
-
-
 });
 // ************ End ****************************//
 
@@ -193,13 +174,4 @@ Route::prefix('employees')->middleware('auth')->group(function(){
     Route::get('/delete/{id}','Staff\EmployeeController@destroy')->name('employee.destroy');
 
 });
-//**********************Discipline routes*************************************
 
-Route::prefix('disciplines')->middleware('auth')->group(function(){
-    Route::get('/index','Students\DisciplineController@index')->name('discipline.index');
-    Route::get('/create','Students\DisciplineController@create')->name('discipline.create');
-    Route::get('/edit/{id}','Students\DisciplineController@edit')->name('discipline.edit');
-    Route::get('/delete/{id}','Students\DisciplineController@destroy')->name('discipline.destroy');
-    Route::post('/update/{id}','Students\DisciplineController@update')->name('discipline.update');
-    Route::post('/store','Students\DisciplineController@store')->name('discipline.store');
-});
