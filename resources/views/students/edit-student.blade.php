@@ -84,19 +84,7 @@
 </div>
 </div>
 </div>
-<div class="col-md-4">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">Adm. date</label>
-<div class="col-md-8">
-<div class='input-group'>
-<input type='text' class="form-control singledate" name="doa" value="{{$student->doa}}">
-<span class="input-group-addon">
-    <span class="icon-calendar3"></span>
-</span>
-</div>
-</div>
-</div>
-</div>
+
 </div><!--end row-->
 <div class="row">
 <div class="col-md-4">
@@ -106,7 +94,7 @@
 <select class="form-control" name="form_id">
     <option  selected="selected" value="{{ $student->form_id }}">Form {{ $student->form }}</option>
     @forelse($forms as $form)
-    <option value="{{ $form->id }}">Form {{ $form->form }}</option>
+    <option value="{{ $form->id }}">{{ $form->form }}</option>
     @empty
     <option value="">No data found!</option>
     @endforelse
@@ -117,13 +105,13 @@
 </div>
 <div class="col-md-4">
 <div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">Stream</label>
+<label class="col-md-4 label-control" for="userinput2">Course</label>
 <div class="col-md-8">
 <select class="form-control" name="stream_id">
-     <option  selected="selected" value="{{ $student->stream_id }}"> {{ $student->stream}}</option>
-    @forelse($streams as $stream)
+     <option  selected="selected" value="{{ $student->course_id }}"> {{ $student->course}}</option>
+    @forelse($courses as $course)
     
-    <option value="{{ $stream->id }}">{{ $stream->stream_name }}</option>
+    <option value="{{ $course->id }}">{{ $course->course_name }}</option>
     @empty
     <option value="">No data found!</option>
     @endforelse
@@ -132,14 +120,7 @@
 </div>
 </div>
 </div>
-<div class="col-md-4">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">KCPE Marks</label>
-<div class="col-md-8">
-<input type="number" class="form-control" value="{{$student->kcpe_entry}}" name="kcpe_entry">
-</div>
-</div>
-</div>
+
 </div><!--end row-->
 
 <h4 class="form-section"><i class="icon-user"></i> Parent details & Other info</h4>
@@ -169,45 +150,11 @@
     <option value="Muslim">Muslim</option>
 </select></div>
 </div>
-<div class="form-group row">
-<label class="col-md-4 label-control">Disabled?</label>
-<div class="col-md-8">
-<select class="form-control" name="disability">
-    <option  selected="selected" value="{{ $student->disability }}"> {{ $student->disability }}</option>
-    <option value="None">None</option>
-    <option value="Mobility">Mobility</option>
-    <option value="Visual">Visual</option>
-    <option value="Cognitive">Cognitive</option>
-    <option value="Auditory">Auditory</option>
-    <option value="Other">Other</option>
-</select>
-</div>
-</div>
+
 </div>
 <div class="col-md-6">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput8">Have a special Condition?</label>
-<div class="col-md-8">
-<textarea id="userinput8" class="form-control col-md-8" name="special_condition">{{$student->special_condition}}</textarea>
-</div>
-</div>
- <div class="form-group row">
-     <div class="col-md-4">
-        <label class=" label-control" for="userinput8">Will the student be a border?</label>
-    </div>
-    <div class="col-md-8">
-              <label class="display-inline-block custom-control custom-radio">
-                <input type="radio" name="boarding" class="custom-control-input" value="1" @if($student->boarding==1) {{ "checked"}} @endif>
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Yes</span>
-              </label>
-              <label class="display-inline-block custom-control custom-radio">
-                <input type="radio" name="boarding" class="custom-control-input" value="0" @if($student->boarding==0) {{ "checked"}} @endif>
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">No</span>
-              </label>
-             </div>
-            </div>
+
+
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput6">Academic Year</label>
 <div class="col-md-8">

@@ -17,9 +17,9 @@ class StudentController extends Controller
     {
         
          $students=\DB::table('students')
-                       ->join('streams','students.stream_id','streams.id')
+                       ->join('courses','students.course_id','courses.id')
                        ->join('forms','students.form_id','forms.id')
-                       ->select('students.*','streams.stream_name as stream','forms.form')
+                       ->select('students.*','courses.course_name as course','forms.form')
                        ->get();
         return view('students.index',['students'=>$students]);
     }
@@ -32,8 +32,8 @@ class StudentController extends Controller
     public function create()
     {
         $forms=\App\Settings\Form::all();
-        $streams=\App\Settings\Stream::all();
-      return view('students.add-student',['forms'=>$forms,'streams'=>$streams]);
+        $courses=\App\Settings\Course::all();
+      return view('students.add-student',['forms'=>$forms,'courses'=>$courses]);
     }
 
     /**
@@ -44,22 +44,18 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request->all());
         $this->validate($request,[
         'adm_no'=>'required',
         'fname'=>'required',
         'lname'=>'required',
         'dob'=>'required',
-        'doa'=>'required',
         'gender'=>'required',
         'religion'=>'required',
         'form_id'=>'required',
-        'stream_id'=>'required',
-        'kcpe_entry'=>'required',
+        'course_id'=>'required',
         'parent_name'=>'required',
         'parent_contact'=>'required',
-        'disability'=>'required',
-        'special_condition'=>'required',
-        'boarding'=>'required',
         'academic_year'=>'required',
         ]);
     $student = Student::create(array_merge($request->all()));
@@ -93,14 +89,14 @@ if ($request->hasFile('photo')) {
     public function edit($id)
     {
          $forms=\App\Settings\Form::all();
-        $streams=\App\Settings\Stream::all();
+        $courses=\App\Settings\Course::all();
         $student=\DB::table('students')
-                       ->join('streams','students.stream_id','streams.id')
+                       ->join('courses','students.course_id','courses.id')
                        ->join('forms','students.form_id','forms.id')
-                       ->select('students.*','streams.stream_name as stream','forms.form')
+                       ->select('students.*','courses.course_name as course','forms.form')
                        ->where('students.id',$id)
                        ->first();
-        return view('students.edit-student',['student'=>$student,'forms'=>$forms,'streams'=>$streams]);
+        return view('students.edit-student',['student'=>$student,'forms'=>$forms,'courses'=>$courses]);
     }
 
     /**

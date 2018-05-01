@@ -29,26 +29,22 @@
             <th>#</th>
             <th>Adm No.</th>
             <th>Name</th>
+            <th>Course</th>
             <th>Class</th>
-            <th>Stream</th>
             <th>Gender</th>
-            <th>Boarding</th>
             <th>Year</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-       @php $i=0; @endphp
-           @forelse($students as $student)
-               @php $i++; @endphp
+           @forelse($students as $i=> $student)
         <tr>
-         <td>{{ $i }}</td>
+         <td>{{ $i+1 }}</td>
          <td>{{ $student->adm_no }}</td>
          <td>{{ $student->fname }} {{ $student->lname }}</td>
-         <td>Form {{ $student->form }}</td>
-         <td>{{ $student->stream }}</td>
+         <td>{{ $student->course }}</td>
+         <td>{{ $student->form }}</td>
          <td>{{ $student->gender }}</td>
-         <td>@if($student->boarding==1){{ "Border" }} @else {{ "Day scholar" }} @endif</td>
          <td>{{ $student->academic_year }}</td>
          <td>
              <a href="" class="btn btn-danger" data-toggle="modal" data-target="#panel-modal-{{ $student->id }}"><i class="icon-close"></i></a>
