@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 29, 2018 at 10:52 PM
+-- Generation Time: May 01, 2018 at 08:36 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.12
 
@@ -157,6 +157,13 @@ CREATE TABLE `invoices` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `invoices`
+--
+
+INSERT INTO `invoices` (`id`, `adm_no`, `year`, `term_id`, `form_id`, `course_id`, `amount`, `balance`, `created_at`, `updated_at`) VALUES
+(3, 'DIP/Nurs/211/2018', 2018, 1, 2, 1, 4000, 4000, '2018-05-01 15:36:31', '2018-05-01 15:36:31');
+
 -- --------------------------------------------------------
 
 --
@@ -203,17 +210,19 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2018_01_10_190341_create_settings_table', 1),
 (5, '2018_01_10_190429_create_courses_table', 1),
 (6, '2018_01_10_190612_create_forms_table', 1),
-(7, '2018_01_10_191032_create_students_table', 1),
 (8, '2018_01_10_191200_create_terms_table', 1),
 (9, '2018_01_10_191403_create_exams_table', 1),
 (10, '2018_01_10_191608_create_voteheads_table', 1),
-(11, '2018_01_10_191823_create_invoices_table', 1),
-(12, '2018_01_10_191917_create_fees_table', 1),
 (13, '2018_01_10_191930_create_payments_table', 1),
 (14, '2018_01_17_063516_add_academic_year_to_students_table', 1),
 (15, '2018_01_20_215231_create_deposits_table', 1),
 (16, '2018_01_24_121208_create_employees_table', 1),
-(17, '2018_01_24_121427_create_lecturers_table', 1);
+(17, '2018_01_24_121427_create_lecturers_table', 1),
+(18, '2018_01_10_191032_create_students_table', 2),
+(19, '2018_01_10_191823_create_invoices_table', 2),
+(20, '2018_01_10_191917_create_fees_table', 2),
+(21, '2018_05_01_170212_add_academic_year_to_students_table', 3),
+(22, '2018_01_10_191001_create_subjects_table', 4);
 
 -- --------------------------------------------------------
 
@@ -491,18 +500,35 @@ CREATE TABLE `students` (
   `fname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dob` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `doa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `religion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `form_id` int(10) UNSIGNED NOT NULL,
   `course_id` int(10) UNSIGNED NOT NULL,
   `parent_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent_contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `disability` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `special_condition` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `boarding` tinyint(1) NOT NULL DEFAULT '0',
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'student.png',
   `academic_year` year(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `adm_no`, `fname`, `lname`, `dob`, `gender`, `religion`, `form_id`, `course_id`, `parent_name`, `parent_contact`, `photo`, `academic_year`, `created_at`, `updated_at`) VALUES
+(1, 'DIP/Nurs/211/2018', 'Erastus', 'Siocha', '2018-05-01', 'Male', 'Christian', 2, 1, 'Muinde', '0704652786', '1525196204.jpg', 2018, '2018-05-01 14:18:46', '2018-05-01 14:36:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `subject_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -550,10 +576,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `initials`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Chandy David', 'CD', 'chandydavid88@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'NTdtrrpKZq3p4FMM58dq5QBMKsiWSngKF3RfK2AWj2JRL3TTatq3dJroYS0J', '2018-01-24 22:10:41', '2018-01-24 22:10:41'),
+(1, 'Chandy David', 'CD', 'chandydavid88@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'm3DVSNthJGqZNBqVAHLTWaLcxd5VVru6oG2NzTRuerHhASx5gWxcl6AYFsBa', '2018-01-24 22:10:41', '2018-01-24 22:10:41'),
 (2, 'John Kilombo', 'JK', 'john@yahoo.com', '$2y$10$bzfSREXtYXLaCKwkpZwLk.Gfg2WtWtxY9rf79CHI7iu710MFy8Q3S', NULL, '2018-01-24 22:40:29', '2018-01-24 22:40:29'),
 (3, 'System Administrator', '', 'admin@karunga.com', '$2y$10$PqrIrvIWIAfxiY3HACSXkOLpO/v38DzdETXDI/V6GwWzrGlAX.tgS', NULL, '2018-02-21 22:01:38', '2018-02-21 22:01:38'),
-(4, 'titus Mwangangi', 'TM', 'erick@gmail.com', '$2y$10$JGhPN9U9gshq7xgFsYr6jOKyS58tDUeOT03cgN60kYFYHZ1FWvDUe', NULL, '2018-03-31 06:30:04', '2018-03-31 06:30:04');
+(4, 'titus Mwangangi', 'TM', 'erick@gmail.com', '$2y$10$JGhPN9U9gshq7xgFsYr6jOKyS58tDUeOT03cgN60kYFYHZ1FWvDUe', NULL, '2018-03-31 06:30:04', '2018-03-31 06:30:04'),
+(5, 'Erick Otieno', 'EO', 'sahadat@gmail.com', '$2y$10$MEsHR7qn3EtDh5Sv9TwjZe371iB6JL3RV6Y5i0H6URbm5BWKll3T6', NULL, '2018-05-01 16:58:22', '2018-05-01 16:58:22');
 
 -- --------------------------------------------------------
 
@@ -702,6 +729,14 @@ ALTER TABLE `students`
   ADD KEY `students_course_id_foreign` (`course_id`);
 
 --
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `subjects_subject_code_unique` (`subject_code`),
+  ADD UNIQUE KEY `subjects_subject_name_unique` (`subject_name`);
+
+--
 -- Indexes for table `terms`
 --
 ALTER TABLE `terms`
@@ -764,7 +799,7 @@ ALTER TABLE `forms`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lecturers`
@@ -776,7 +811,7 @@ ALTER TABLE `lecturers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -806,7 +841,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `terms`
@@ -818,7 +859,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `voteheads`

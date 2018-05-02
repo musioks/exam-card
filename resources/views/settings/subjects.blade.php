@@ -8,7 +8,7 @@
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header bg-light-blue bg-lighten-1">
-                    <h4 class="card-title text-white">Manage Subjects</h4>
+                    <h4 class="card-title text-white">Manage Units</h4>
                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
@@ -27,30 +27,20 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h2 class="modal-title" id="myModalLabel28">New Subject</h2>
+        <h2 class="modal-title" id="myModalLabel28">New Unit</h2>
       </div>
       <div class="modal-body">
-<form   method="post" action="{{ url('/settings/subjects') }}" novalidate="">
+<form   method="post" action="{{ url('/settings/units') }}" novalidate="">
         {{ csrf_field() }}
-           <div class="form-group">
-        <label  for="form-username">Subject Group <span class="text-danger">*</span></label>
-        <select name="group_id" class="form-control select2" required style="width:100%;">
-            @forelse($groups as $group)
-            <option value="{{ $group->id }}"> {{$group->group_name}}</option>
-            @empty
-            <option value="">No data</option>
-            @endforelse
-        </select>
+  
+     <div class="form-group">
+        <label  for="Form">Unit Code <span class="text-danger">*</span></label>
+        <input type="text" name="subject_code" placeholder="eg. BIO101" class="form-control"  required>
         <div class="help-block font-small-3"></div>
     </div>
      <div class="form-group">
-        <label  for="Form">Subject Code <span class="text-danger">*</span></label>
-        <input type="text" name="subject_code" placeholder="eg. 101" class="form-control"  required>
-        <div class="help-block font-small-3"></div>
-    </div>
-     <div class="form-group">
-        <label  for="Form">Subject Name<span class="text-danger">*</span></label>
-        <input type="text" name="subject_name" placeholder="eg. English" class="form-control"  required>
+        <label  for="Form">Unit Name<span class="text-danger">*</span></label>
+        <input type="text" name="subject_name" placeholder="eg. Introduction to Zoology" class="form-control"  required>
         <div class="help-block font-small-3"></div>
     </div>
      
@@ -70,15 +60,14 @@
 </div>
     <!--end modal -->
     <p class="card-text"><button class="btn btn-success" data-toggle="modal" data-target="#heading2">
-        <i class="icon-plus"></i>New Subject</button></p>
+        <i class="icon-plus"></i>New Unit</button></p>
                         <hr>
        <table class="table  table-bordered table-condensed table-hover zero-configuration">
                             <thead>
         <tr class="">
             <th>#</th>
-            <th>Group Name</th>
-            <th>Subject Code</th>
-            <th>Subject Name</th>
+            <th>Unit Code</th>
+            <th>Unit Name</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -88,7 +77,6 @@
                @php $i++; @endphp
         <tr>
          <td>{{ $i }}</td>
-         <td>{{ $subject->group }}</td>
          <td>{{ $subject->subject_code }}</td>
          <td>{{ $subject->subject_name }}</td>
          <td>
@@ -100,10 +88,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-          <h5>Are you sure you want to delete this subject?</h5>
+          <h5>Are you sure you want to delete this unit?</h5>
                 </div>
                   <div class="modal-footer clearfix">
-        <a href="{{ url('/settings/delete-subject/'.$subject->id) }}" class="btn btn-success float-sm-left">Okay</a>
+        <a href="{{ url('/settings/delete-unit/'.$subject->id) }}" class="btn btn-success float-sm-left">Okay</a>
         <button type="button" class="btn btn-danger float-sm-right" data-dismiss="modal">Cancel</button>
       </div>
             </div>
@@ -120,27 +108,16 @@
         <h4 class="modal-title" id="myModalLabel">Edit details</h4>
       </div>
       <div class="modal-body">
-     <form  role="form" id="update-form-{{ $subject->id }}" method="post" action="{{ url('/settings/update-subject') }}">
+     <form  role="form" id="update-form-{{ $subject->id }}" method="post" action="{{ url('/settings/update-unit') }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
          <input type="hidden" name="id" value="{{$subject->id}}">
-           <div class="form-group">
-        <label  for="form-username">Subject Group <span class="text-danger">*</span></label>
-        <select name="group_id" class="form-control select2" required>
-           <option selected="selected" value="{{ $subject->group_id }}">{{ $subject->group }}</option>
-            @forelse($groups as $group)
-            <option value="{{ $group->id }}"> {{$group->group_name}}</option>
-            @empty
-            <option value="">No data</option>
-            @endforelse
-        </select>
-    </div>
      <div class="form-group">
-        <label  for="Form">Subject Code</label>
+        <label  for="Form">Unit Code</label>
         <input type="text" name="subject_code" value="{{$subject->subject_code}}" class="form-control">
     </div>
      <div class="form-group">
-        <label  for="Form">Subject Name</label>
+        <label  for="Form">Unit Name</label>
         <input type="text" name="subject_name" value="{{$subject->subject_name}}" class="form-control">
     </div>
 </form>

@@ -14,12 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-         $groups=\App\Settings\Subject_group::all();
-         $subjects=\DB::table('subjects')
-                       ->join('subject_groups','subjects.group_id','subject_groups.id')
-                       ->select('subjects.*','subject_groups.group_name as group')
-                       ->get();
-        return view('settings.subjects',['groups'=>$groups,'subjects'=>$subjects]);
+         $subjects=Subject::all();
+        return view('settings.subjects',['subjects'=>$subjects]);
     }
 
     /**
@@ -41,12 +37,11 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
          $this->validate($request, [
-       'group_id'=>'required', 
        'subject_code'=>'required', 
        'subject_name'=>'required', 
         ]);
         Subject::create(array_merge($request->all()));
-        return redirect()->back()->with('success','Subject has been created!');
+        return redirect()->back()->with('success','Unit has been created!');
     }
 
     /**
@@ -82,7 +77,7 @@ class SubjectController extends Controller
     {
        $subject=Subject::find($request->id);
        $subject->update(array_merge($request->all()));
-       return redirect()->back()->with('info','Subject has been updated!');
+       return redirect()->back()->with('info','Unit has been updated!');
     }
 
     /**
@@ -95,6 +90,6 @@ class SubjectController extends Controller
     {
        $subject=Subject::find($id);
        $subject->delete();
-        return redirect()->back()->with('warning','Subject has been deleted!');
+        return redirect()->back()->with('warning','Unit has been deleted!');
     }
 }

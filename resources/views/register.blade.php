@@ -28,11 +28,15 @@
         </div>
         <div class="content-body"><section class="col-md-4 offset-md-4 col-xs-8 offset-xs-2 box-shadow-2 p-0">
     <div class="card border-grey border-lighten-3 px-2 py-2 row mb-0">
-        <div class="card-header no-border">
+    <div class="card-header no-border">
             <div class="card-title text-xs-center">
-                <h1 class="text-info">JKUAT EXAM CARD PROCESSING SYSTEM</h1>
+                @isset($setting)
+                <img src="{{asset('images/'.$setting->logo)}}" alt="branding logo">
+                @else
+                 <img src="{{asset('images/logo.png')}}" alt="branding logo">
+                @endisset
             </div>
-            <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Register with Robust</span></h6>
+            <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Create an account here.</span></h6>
         </div>
 <div class="card-body collapse in">
 <div class="card-block">

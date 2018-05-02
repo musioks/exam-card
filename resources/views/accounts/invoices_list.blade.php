@@ -35,8 +35,7 @@
 <thead>
 <tr>
 <th>#</th>
-<th>Reg NO</th>
-<th>Sch Type</th>
+<th>Admission No.</th>
 <th>Full Name</th>
 <th>Total Fees</th>
 <th>Date Invoiced</th>
@@ -49,18 +48,6 @@
 <tr>
     <td>{{$i}}</td>
     <td>{{$feeRecord->adm_no}}</td>
-    <td>
-        @php
-            $sch=$feeRecord->boarding;
-            if ($sch==0){
-                echo 'Bording';
-            }else{
-                echo 'Day';
-            }
-            
-            
-        @endphp
-    </td>
     <td >{{$feeRecord->fname}} {{$feeRecord->lname}}</td>
     <td >Kshs. {{$feeRecord->amount}}</td>
     <td>{{ date('Y-m-d', strtotime($feeRecord->created_at)) }}</td>

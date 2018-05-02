@@ -26,7 +26,6 @@ public function invoices(){
    ->select('invoices.*',
           'students.adm_no as adm',
           'students.fname',
-          'students.boarding',
           'students.lname',
           'invoices.year'
         )
@@ -59,7 +58,6 @@ public function invoices(){
   ->select('invoices.*',
           'students.adm_no as adm',
           'students.fname',
-          'students.boarding',
           'students.lname',
           'invoices.year'
         )
@@ -84,6 +82,7 @@ public function invoices(){
   	}
   	public function postAddInvoice(Request $request)
   	{
+     // dd($request->all());
   		$request->validate([
   					'formID'  =>  'required',
   					'year' =>' required',
@@ -94,14 +93,13 @@ public function invoices(){
   		$type = $request -> type;
   		$year = $request -> year;
       $term = $request -> termID;
-      $streamID = $request -> streamID;
+      $courseID = $request -> courseID;
       $amount=$request->amount;
   		$students=DB::table('students')
           ->where(
             [
               'form_id' =>  $form,
-              'boarding'  =>  $type,
-              'stream_id' =>  $streamID,
+              'course_id' =>  $courseID,
               'academic_year' => $year
             ])
   		  ->get();
@@ -116,7 +114,7 @@ public function invoices(){
                          'adm_no' =>  $ids[$i],
                          'term_id'  =>  $term,
                          'form_id'  =>  $form,
-                         'stream_id'  =>  $streamID,
+                         'course_id'  =>  $courseID,
                        ],
                        [
                          'year' =>  $year,

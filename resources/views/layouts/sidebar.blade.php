@@ -6,12 +6,12 @@
 <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
 <li class="{{Request::is('dashboard') ? 'active': ''}}"><a href="{{ url('/dashboard') }}"><i class="icon-home3"></i><span data-i18n="nav.dash.ecommerce" class="menu-title">Dashboard</span></a>
 </li>
-<li class=" navigation-header"><span data-i18n="nav.category.layouts">Staff</span><i data-toggle="tooltip" data-placement="right" data-original-title="Layouts" class="icon-ellipsis icon-ellipsis"></i>
+{{-- <li class=" navigation-header"><span data-i18n="nav.category.layouts">Staff</span><i data-toggle="tooltip" data-placement="right" data-original-title="Layouts" class="icon-ellipsis icon-ellipsis"></i>
 </li>
 <li class="{{Request::is('staff/teaching/staff') ? 'active': ''}} nav-item"><a href="{{ url('/staff/teaching/staff') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Lecturers</span></a>
 </li>
 <li class="{{Request::is('employees/employee') ? 'active': ''}} nav-item"><a href="{{ url('/employees/employee') }}"><i class="icon-users"></i><span data-i18n="nav.components.main" class="menu-title">Non-Teaching Staff</span></a>
-</li>
+</li> --}}
 
 <li class=" navigation-header"><span data-i18n="nav.category.general">Students</span><i data-toggle="tooltip" data-placement="right" data-original-title="General" class="icon-ellipsis icon-ellipsis"></i>
 </li>
@@ -50,19 +50,11 @@
 <li class="{{Request::is('settings/courses') ? 'active': ''}} nav-item"><a href="{{url('/settings/courses')}}"><i class="icon-wpforms
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Courses</span></a>
 </li>
+<li class="{{Request::is('/settings/units') ? 'active': ''}} nav-item"><a href="{{url('/settings/units')}}"><i class="icon-books
+"></i><span data-i18n="nav.changelog.main" class="menu-title">Units</span></a>
+</li>
 <li class="{{Request::is('settings/forms') ? 'active': ''}} nav-item"><a href="{{url('/settings/forms')}}"><i class="icon-paper
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Classes</span></a>
-</li>
-<li class=" nav-item"><a href="#"><i class="icon-ios-paper-outline"></i><span data-i18n="nav.form_wizard.main" class="menu-title">Subjects</span></a>
-<ul class="menu-content">
-  <li class="{{Request::is('settings/subject-groups') ? 'active': ''}}"><a href="{{url('/settings/subject-groups')}}" data-i18n="nav.form_wizard.form_wizard_circle_style" class="menu-item">Subject Groups</a>
-  </li>
-  <li class="{{Request::is('settings/subjects') ? 'active': ''}}"><a href="{{url('/settings/subjects')}}" data-i18n="nav.form_wizard.form_wizard_notification_style" class="menu-item">Subjects</a>
-  </li>
-</ul>
-</li>
-<li class="{{Request::is('settings/exams') ? 'active': ''}} nav-item"><a href="{{url('/settings/exams')}}"><i class="icon-books
-"></i><span data-i18n="nav.changelog.main" class="menu-title">Exam Types</span></a>
 </li>
 <li class="{{Request::is('settings/voteheads') ? 'active': ''}} nav-item"><a href="{{url('/settings/voteheads')}}"><i class="icon-money
 "></i><span data-i18n="nav.changelog.main" class="menu-title">Voteheads</span></a>

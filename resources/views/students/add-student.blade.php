@@ -26,6 +26,16 @@
                         <hr>       
  <form class="form-horizontal" method="post" action="{{ url('/students/create') }}" enctype="multipart/form-data" novalidate="">
      {{ csrf_field() }}
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="form-body">
 <h4 class="form-section"><i class="icon-eye6"></i> About student</h4>
 <div class="row">
@@ -58,7 +68,7 @@
 </div>
 </div>
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput1">Gender</label>
 <div class="col-md-8">
@@ -71,7 +81,7 @@
 </div>
 </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput2">Date of Birth</label>
 <div class="col-md-8">
@@ -85,23 +95,10 @@
 </div>
 </div>
 </div>
-<div class="col-md-4">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">Adm. date</label>
-<div class="col-md-8">
-<div class='input-group'>
-<input type='text' class="form-control singledate" name="doa" required>
-<span class="input-group-addon">
-    <span class="icon-calendar3"></span>
-</span>
-</div>
-<div class="help-block font-small-3"></div>
-</div>
-</div>
-</div>
+
 </div><!--end row-->
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput1">Class</label>
 <div class="col-md-8">
@@ -109,7 +106,7 @@
     <option value="">--select class--</option>
     @forelse($forms as $form)
     
-    <option value="{{ $form->id }}">Form {{ $form->form }}</option>
+    <option value="{{ $form->id }}">{{ $form->form }}</option>
     @empty
     <option value="">No data found!</option>
     @endforelse
@@ -118,28 +115,19 @@
 </div>
 </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">Stream</label>
+<label class="col-md-4 label-control" for="userinput2">Course</label>
 <div class="col-md-8">
-<select class="form-control" name="stream_id" required data-validation-required-message= "Select stream">
-    <option value="">--select stream--</option>
-    @forelse($streams as $stream)
+<select class="form-control" name="course_id" required data-validation-required-message= "you must choose a course!">
+    <option value="">--select course--</option>
+    @forelse($courses as $course)
     
-    <option value="{{ $stream->id }}">{{ $stream->stream_name }}</option>
+    <option value="{{ $course->id }}">{{ $course->course_name }}</option>
     @empty
     <option value="">No data found!</option>
     @endforelse
 </select>
-<div class="help-block font-small-3"></div>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput2">KCPE Marks</label>
-<div class="col-md-8">
-<input type="number" class="form-control" placeholder="KCPE Entry marks" name="kcpe_entry" required data-validation-required-message= "Enter KCPE marks">
 <div class="help-block font-small-3"></div>
 </div>
 </div>
@@ -173,45 +161,11 @@
     <option value="Muslim">Muslim</option>
 </select></div>
 </div>
-<div class="form-group row">
-<label class="col-md-4 label-control">Disabled?</label>
-<div class="col-md-8">
-<select class="form-control" name="disability"  required>
-    <option value="">--select disability--</option>
-    <option value="None">None</option>
-    <option value="Mobility">Mobility</option>
-    <option value="Visual">Visual</option>
-    <option value="Cognitive">Cognitive</option>
-    <option value="Auditory">Auditory</option>
-    <option value="Other">Other</option>
-</select>
-</div>
-</div>
+
 </div>
 <div class="col-md-6">
-<div class="form-group row">
-<label class="col-md-4 label-control" for="userinput8">Have a special Condition?</label>
-<div class="col-md-8">
-<textarea id="userinput8" class="form-control col-md-8" name="special_condition" placeholder="Describe it here" required></textarea>
-</div>
-</div>
- <div class="form-group row">
-     <div class="col-md-4">
-        <label class=" label-control" for="userinput8">Will the student be a border?</label>
-    </div>
-    <div class="col-md-8">
-              <label class="display-inline-block custom-control custom-radio">
-                <input type="radio" name="boarding" class="custom-control-input" value="1">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Yes</span>
-              </label>
-              <label class="display-inline-block custom-control custom-radio">
-                <input type="radio" name="boarding" checked class="custom-control-input" value="0">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">No</span>
-              </label>
-             </div>
-            </div>
+
+
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput6">Academic Year</label>
 <div class="col-md-8">

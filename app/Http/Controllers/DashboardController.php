@@ -9,7 +9,10 @@ use App\User;
 class DashboardController extends Controller
 {
    public function index(){
-   	return view('dashboard.index');
+       $students=DB::table('students')->get()->count();
+       $courses=DB::table('courses')->get()->count();
+       $users=DB::table('users')->get()->count();
+   	return view('dashboard.index')->with(['students'=>$students,'courses'=>$courses,'users'=>$users]);
    }
     public function users(){
     $users=\App\User::all();

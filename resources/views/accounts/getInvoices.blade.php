@@ -30,8 +30,8 @@
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color:#263238;
-        color: white;
+        background-color:#eeeeee;
+        color: #000;
     }
     .alignleft {
         float: left;
@@ -42,43 +42,24 @@
     </style>
 </head>
 <body>
-      <div id="textbox">
-    <span class="alignleft"><img src="{{ public_path('/images/logo.jpg') }}" ></span>
-    <span class="alignright"><h1>KARUNG'A SECONDARY SCHOOL.</h1>
-                              <h4>P.O. BOX 533 - 90400,MWINGI</h4>
-                              <h4><i>Motto:In Knowledge Dwells Strength</i></h4>
-                          </span>
-              </div>
+<div id="header">
+    <h1>Invoices List</h1>
+</div>
 <table id="layout">
 <thead>
 <tr>
 <th>#</th>
-<th>Reg NO</th>
-<th>Sch Type</th>
+<th>Admission No</th>
 <th>Full Name</th>
 <th>Total Fees</th>
 <th>Date Invoiced</th>
 </tr>
 </thead>
 <tbody>
-<?php $i=0;?>
-@foreach($invoices as $feeRecord)
-<?php $i++;?>
+@foreach($invoices as $i=> $feeRecord)
 <tr>
-    <td>{{$i}}</td>
+    <td>{{$i+1}}</td>
     <td>{{$feeRecord->adm_no}}</td>
-    <td>
-        @php
-            $sch=$feeRecord->boarding;
-            if ($sch==0){
-                echo 'Bording';
-            }else{
-                echo 'Day';
-            }
-            
-            
-        @endphp
-    </td>
     <td >{{$feeRecord->fname}} {{$feeRecord->lname}}</td>
     <td >Kshs. {{$feeRecord->amount}}</td>
     <td>{{ date('Y-m-d', strtotime($feeRecord->created_at)) }}</td>

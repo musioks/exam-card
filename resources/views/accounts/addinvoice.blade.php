@@ -34,11 +34,11 @@
 	<select id="projectinput5" name="formID" class="form-control">
 		<option value="">---------select class---------</option>
 		@foreach($classes as $class)
-<option value="{{$class->id}}">Form {{$class->form}}</option>
+<option value="{{$class->id}}">{{$class->form}}</option>
 @endforeach
 	</select>
-	@if($errors->has('class'))
-		<span class="danger text-muted">{{ $errors->first('class') }}</span>
+	@if($errors->has('formID'))
+		<span class="danger text-muted">{{ $errors->first('formID') }}</span>
 	@endif
 </div>
 </div>
@@ -55,31 +55,15 @@
 <div class="row">
 <div class="col-md-6">
 <div class="row">
-	<div class="col-md-6">
+
+	<div class="col-md-12">
 		<div class="form-group">
-			<label>School Type</label>
-			<div class="input-group">
-				<label class="display-inline-block custom-control custom-radio ml-1">
-					<input type="radio" name="type" value="0" class="custom-control-input">
-					<span class="custom-control-indicator"></span>
-					<span class="custom-control-description ml-0">Boarding</span>
-				</label>
-				<label class="display-inline-block custom-control custom-radio">
-					<input type="radio" name="type" value="1" checked class="custom-control-input">
-					<span class="custom-control-indicator"></span>
-					<span class="custom-control-description ml-0">Day</span>
-				</label>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<label for="projectinput5">Term</label>
+			<label for="projectinput5">Session</label>
 			<select id="projectinput5" name="termID" class="form-control">
-<option value="">---------select term---------</option>
+<option value="">---------select Session---------</option>
 
 				@foreach($term as $term)
-				<option value="{{$term->term}}">Term {{$term->term}}</option>
+				<option value="{{$term->id}}">{{$term->term}}</option>
 				@endforeach
 			</select>
 			@if($errors->has('termID'))
@@ -94,12 +78,12 @@
 <div class="col-md-6">
 <div class="row">
 	<div class="col-md-6">
-		<div class="form-group {{$errors->has('streamID') ? 'has-error':''}}">
-			<label for="projectinput5">Stream</label>
-			<select id="projectinput5" name="streamID" class="form-control">
-<option value="">-----Select Stream-----</option>
-@foreach($streams as $stream)
-<option value="{{$stream->id}}">{{$stream->stream_name}}</option>
+		<div class="form-group {{$errors->has('courseID') ? 'has-error':''}}">
+			<label for="projectinput5">Course</label>
+			<select id="projectinput5" name="courseID" class="form-control">
+<option value="">-----Select Course-----</option>
+@foreach($courses as $course)
+<option value="{{$course->id}}">{{$course->course_name}}</option>
 @endforeach
 			</select>
 		</div>
