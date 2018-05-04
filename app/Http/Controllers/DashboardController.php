@@ -12,7 +12,13 @@ class DashboardController extends Controller
        $students=DB::table('students')->get()->count();
        $courses=DB::table('courses')->get()->count();
        $users=DB::table('users')->get()->count();
-   	return view('dashboard.index')->with(['students'=>$students,'courses'=>$courses,'users'=>$users]);
+       $balances=DB::table('invoices')->where('balance','>',0)->get()->count();
+   	return view('dashboard.index')->with([
+           'students'=>$students,
+           'courses'=>$courses,
+           'users'=>$users,
+           'balance'=>$balances,
+           ]);
    }
     public function users(){
     $users=\App\User::all();

@@ -54,10 +54,11 @@
                         <i class="icon-dollar font-large-1 blue-grey"></i>
                     </div>
                     <div class="media-body text-xs-right">
-                        <span class="font-large-2 text-bold-300 success">$6,87M</span>
+                    <span class="font-large-2 text-bold-300 success">{{$balance}}</span>
                     </div>
-                    <p class="text-muted">Total Profit<span class="success float-xs-right"><i class="icon-arrow-up4 success"></i> 43.84%</span></p>
-                    <progress class="progress progress-sm progress-success" value="60" max="100"></progress>
+                    <p class="text-muted">No of students with balances</p>
+                    <hr>
+                <a href="{{url('/fees/feeperclass')}}">More details</a>
                 </div>
             </div>
         </div>
