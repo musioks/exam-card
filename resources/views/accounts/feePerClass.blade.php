@@ -26,23 +26,23 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group {{$errors->has('termID') ? 'has-error':''}}">
-											<label for="projectinput5">Term</label>
+											<label for="projectinput5">Semester</label>
 											<select id="projectinput5" name="termID" class="form-control">
-                        <option value="">---------select term---------</option>
+                        <option value="">---------select semester---------</option>
 
 												@foreach($term as $term)
-												<option value="{{$term->term}}">Term {{$term->term}}</option>
+												<option value="{{$term->id}}">{{$term->term}}</option>
 												@endforeach
 											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group {{$errors->has('streamID') ? 'has-error':''}}">
-											<label for="projectinput5">Stream</label>
+											<label for="projectinput5">Course</label>
 											<select id="projectinput5" name="streamID" class="form-control">
-                       <option value="">-----Select Stream-----</option>
+                       <option value="">-----Select Course-----</option>
                        @foreach($streams as $stream)
-                           <option value="{{$stream->id}}">{{$stream->stream_name}}</option>
+                           <option value="{{$stream->id}}">{{$stream->course_name}}</option>
                        @endforeach
 											</select>
 										</div>
@@ -55,7 +55,7 @@
 											<select id="projectinput5" name="class" class="form-control">
 												<option value="">-----Select Class-----</option>
                         @foreach($classes as $classes)
-                            <option value="{{$classes->id}}">Form {{$classes->form}}</option>
+                            <option value="{{$classes->id}}">{{$classes->form}}</option>
                         @endforeach
 											</select>
 										</div>

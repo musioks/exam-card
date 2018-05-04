@@ -40,7 +40,9 @@ class DashboardController extends Controller
     }
     public function updateUser(Request $request, $id){
         $user=User::find($id);
+        $user->update(array_merge($request->all()));
         $roles=$request->roles;
+        //dd($request->all());
         DB::table('role_user')->where('user_id',$id)->delete();
         if($roles==""){
         return redirect()->back()->with('info','User details have been updated!');

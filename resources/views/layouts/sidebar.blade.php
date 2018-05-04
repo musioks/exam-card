@@ -34,10 +34,10 @@
   </li>
 <li class="{{Request::is('fees/payment') ? 'active': ''}}"><a href="{{ url('/fees/payment') }}" data-i18n="nav.cards.card_statistics" class="menu-item">Record Fees</a>
   </li>
-  <li class="{{Request::is('fees/feeperclass') ? 'active': ''}}"><a href="{{ url('/fees/feeperclass') }}" data-i18n="nav.cards.card_statistics" class="menu-item">payment per class</a>
+  <li class="{{Request::is('fees/feeperclass') ? 'active': ''}}"><a href="{{ url('/fees/feeperclass') }}" data-i18n="nav.cards.card_statistics" class="menu-item">Fees Payments</a>
 
-<li class="{{Request::is('fees/feesFilter') ? 'active': ''}}"><a href="{{ url('/fees/feesFilter') }}" data-i18n="nav.cards.card_weather" class="menu-item">Filter Fees</a>
-  </li>
+{{-- <li class="{{Request::is('fees/feesFilter') ? 'active': ''}}"><a href="{{ url('/fees/feesFilter') }}" data-i18n="nav.cards.card_weather" class="menu-item">Filter Fees</a>
+  </li> --}}
 </ul>
 </li>
 

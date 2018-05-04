@@ -55,12 +55,12 @@
  								<div class="row">
  									<div class="col-md-6">
  										<div class="form-group">
- 											<label for="projectinput5">Term</label>
+ 											<label for="projectinput5">Semester</label>
  											<select id="projectinput5" name="termID" class="form-control">
-                         <option value="">---------select term---------</option>
+                         <option value="">---------select session---------</option>
 
  												@foreach($term as $term)
- 												<option value="{{$term->term}}">Term {{$term->term}}</option>
+ 												<option value="{{$term->id}}">{{$term->term}}</option>
  												@endforeach
  											</select>
  											@if($errors->has('termID'))

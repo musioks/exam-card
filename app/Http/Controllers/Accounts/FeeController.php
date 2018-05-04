@@ -55,7 +55,7 @@ class FeeController extends Controller
         public function feePerClass()
         {
             $term=\App\Settings\Term::all();
-            $streams=\App\Settings\Stream::all();
+            $streams=\App\Settings\Course::all();
             $classes=\App\Settings\Form::all();
             return view ( 'accounts.feePerClass')->with('term',$term)->with('classes',$classes)->with('streams', $streams);
         }
@@ -77,7 +77,7 @@ class FeeController extends Controller
                                 ->where([
                                     'invoices.term_id'=>$t,
                                     'invoices.form_id'=>$c,
-                                    'invoices.stream_id'=>$d
+                                    'invoices.course_id'=>$d
                                 ])
                                 ->where('invoices.year',$y)
                                 ->get();

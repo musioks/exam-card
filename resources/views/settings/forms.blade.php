@@ -71,7 +71,7 @@
                @php $i++; @endphp
         <tr>
          <td>{{ $i }}</td>
-         <td>Form {{ $form->form }}</td>
+         <td>{{ $form->form }}</td>
          <td>
              <a href="" class="btn btn-danger" data-toggle="modal" data-target="#panel-modal-{{ $form->id }}"><i class="icon-close"></i></a>
              <a href="" class="btn btn-success" data-toggle="modal" data-target="#update-modal-{{ $form->id }}"><i class="icon-pencil"></i></a>

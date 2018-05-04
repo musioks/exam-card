@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 01, 2018 at 08:36 PM
+-- Generation Time: May 04, 2018 at 04:29 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.12
 
@@ -115,6 +115,13 @@ CREATE TABLE `fees` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `fees`
+--
+
+INSERT INTO `fees` (`id`, `adm_no`, `votehead_id`, `term_id`, `year`, `amount`, `payment_type`, `created_at`, `updated_at`) VALUES
+(1, 'DIP/Nurs/211/2018', 2, 1, 2018, 2000, 'Cash', '2018-05-04 01:04:07', '2018-05-04 01:04:07');
+
 -- --------------------------------------------------------
 
 --
@@ -162,7 +169,7 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `adm_no`, `year`, `term_id`, `form_id`, `course_id`, `amount`, `balance`, `created_at`, `updated_at`) VALUES
-(3, 'DIP/Nurs/211/2018', 2018, 1, 2, 1, 4000, 4000, '2018-05-01 15:36:31', '2018-05-01 15:36:31');
+(3, 'DIP/Nurs/211/2018', 2018, 1, 2, 1, 4000, 2000, '2018-05-01 15:36:31', '2018-05-01 15:36:31');
 
 -- --------------------------------------------------------
 
@@ -352,6 +359,66 @@ CREATE TABLE `permission_role` (
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+(12, 5),
+(13, 5),
+(14, 5),
+(15, 5),
+(16, 5),
+(17, 5),
+(18, 5),
+(19, 5),
+(20, 5),
+(21, 5),
+(22, 5),
+(23, 5),
+(24, 5),
+(25, 5),
+(26, 5),
+(27, 5),
+(28, 5),
+(29, 5),
+(30, 5),
+(31, 5),
+(32, 5),
+(33, 5),
+(34, 5),
+(35, 5),
+(36, 5),
+(37, 5),
+(38, 5),
+(39, 5),
+(40, 5),
+(44, 5),
+(45, 5),
+(46, 5),
+(47, 5),
+(49, 5),
+(50, 5),
+(51, 5),
+(52, 5),
+(53, 5),
+(54, 5),
+(55, 5),
+(56, 5),
+(57, 5),
+(58, 5),
+(59, 5),
+(60, 5),
+(61, 5),
+(62, 5),
+(63, 5),
+(64, 5),
+(65, 5),
+(66, 5),
+(67, 5),
+(68, 5),
+(69, 5),
+(70, 5),
+(71, 5),
+(72, 5),
+(73, 5),
+(74, 5),
+(75, 5),
 (12, 6),
 (13, 6),
 (14, 6),
@@ -445,10 +512,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(5, 'teacher', 'TEACHER', 'TEACHER', '2018-01-14 03:00:06', '2018-01-14 03:00:06'),
-(6, 'Principal', 'School Principal', 'School Principal', '2018-01-17 17:52:44', '2018-01-17 17:54:26'),
-(7, 'Deputy Principal', 'Deputy Principal', 'Deputy Principal of the school', '2018-01-17 17:54:08', '2018-01-17 17:54:08'),
-(8, 'Secretary', 'School Secretary', 'School Secretary', '2018-01-17 17:56:33', '2018-01-17 17:56:33');
+(5, 'admin', 'Adminstrator', 'System Administrator', '2018-01-14 03:00:06', '2018-05-04 00:24:18'),
+(6, 'operator', 'Operator', 'System Operator', '2018-01-17 17:52:44', '2018-05-04 00:32:18');
 
 -- --------------------------------------------------------
 
@@ -576,11 +641,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `initials`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Chandy David', 'CD', 'chandydavid88@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'm3DVSNthJGqZNBqVAHLTWaLcxd5VVru6oG2NzTRuerHhASx5gWxcl6AYFsBa', '2018-01-24 22:10:41', '2018-01-24 22:10:41'),
-(2, 'John Kilombo', 'JK', 'john@yahoo.com', '$2y$10$bzfSREXtYXLaCKwkpZwLk.Gfg2WtWtxY9rf79CHI7iu710MFy8Q3S', NULL, '2018-01-24 22:40:29', '2018-01-24 22:40:29'),
-(3, 'System Administrator', '', 'admin@karunga.com', '$2y$10$PqrIrvIWIAfxiY3HACSXkOLpO/v38DzdETXDI/V6GwWzrGlAX.tgS', NULL, '2018-02-21 22:01:38', '2018-02-21 22:01:38'),
-(4, 'titus Mwangangi', 'TM', 'erick@gmail.com', '$2y$10$JGhPN9U9gshq7xgFsYr6jOKyS58tDUeOT03cgN60kYFYHZ1FWvDUe', NULL, '2018-03-31 06:30:04', '2018-03-31 06:30:04'),
-(5, 'Erick Otieno', 'EO', 'sahadat@gmail.com', '$2y$10$MEsHR7qn3EtDh5Sv9TwjZe371iB6JL3RV6Y5i0H6URbm5BWKll3T6', NULL, '2018-05-01 16:58:22', '2018-05-01 16:58:22');
+(1, 'John Doe', 'CD', 'john@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'm3DVSNthJGqZNBqVAHLTWaLcxd5VVru6oG2NzTRuerHhASx5gWxcl6AYFsBa', '2018-01-24 22:10:41', '2018-05-04 00:39:09'),
+(3, 'Musah Crane', '', 'musa@yahoo.com', '$2y$10$PqrIrvIWIAfxiY3HACSXkOLpO/v38DzdETXDI/V6GwWzrGlAX.tgS', NULL, '2018-02-21 22:01:38', '2018-05-04 00:41:28');
 
 -- --------------------------------------------------------
 
@@ -594,6 +656,19 @@ CREATE TABLE `voteheads` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `voteheads`
+--
+
+INSERT INTO `voteheads` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Tuition', '2018-05-04 00:53:11', '2018-05-04 00:53:11'),
+(2, 'Computer Laboratory', '2018-05-04 00:54:25', '2018-05-04 00:54:25'),
+(3, 'Registration', '2018-05-04 00:54:37', '2018-05-04 00:54:37'),
+(4, 'Caution money', '2018-05-04 00:55:09', '2018-05-04 00:55:09'),
+(5, 'Examination', '2018-05-04 00:55:36', '2018-05-04 00:55:36'),
+(6, 'Medical', '2018-05-04 00:55:43', '2018-05-04 00:55:43'),
+(7, 'Activity', '2018-05-04 00:56:10', '2018-05-04 00:56:10');
 
 --
 -- Indexes for dumped tables
@@ -787,7 +862,7 @@ ALTER TABLE `exams`
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `forms`
@@ -847,7 +922,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `terms`
@@ -865,7 +940,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `voteheads`
 --
 ALTER TABLE `voteheads`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
