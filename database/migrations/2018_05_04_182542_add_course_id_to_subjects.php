@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExamsTable extends Migration
+class AddCourseIdToSubjects extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateExamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('exams', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('unit_id');
-            $table->string('name');
-            $table->date('exam_date');
-            $table->integer('out_of');
-            $table->timestamps();
+        Schema::table('subjects', function (Blueprint $table) {
+            $table->integer('course_id')->nullable()->after('id');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateExamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exams');
+        Schema::table('subjects', function (Blueprint $table) {
+            //
+        });
     }
 }

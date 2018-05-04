@@ -75,6 +75,7 @@ Route::prefix('students')->middleware('auth')->group(function(){
     Route::get('/edit/{id}','Students\StudentController@edit');
     Route::post('/edit/{id}','Students\StudentController@update');
     Route::get('/delete/{id}','Students\StudentController@destroy');
+    Route::get('/exams','Settings\ExamController@students');
 
 });
 // ************ End ****************************//

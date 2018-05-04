@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 04, 2018 at 04:29 AM
+-- Generation Time: May 04, 2018 at 09:22 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.12
 
@@ -92,10 +92,20 @@ CREATE TABLE `employees` (
 
 CREATE TABLE `exams` (
   `id` int(10) UNSIGNED NOT NULL,
-  `exam_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unit_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exam_date` date NOT NULL,
+  `out_of` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exams`
+--
+
+INSERT INTO `exams` (`id`, `unit_id`, `name`, `exam_date`, `out_of`, `created_at`, `updated_at`) VALUES
+(1, 1, 'End of Sem Exams', '2018-05-30', 70, '2018-05-04 17:45:59', '2018-05-04 17:45:59');
 
 -- --------------------------------------------------------
 
@@ -218,7 +228,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2018_01_10_190429_create_courses_table', 1),
 (6, '2018_01_10_190612_create_forms_table', 1),
 (8, '2018_01_10_191200_create_terms_table', 1),
-(9, '2018_01_10_191403_create_exams_table', 1),
 (10, '2018_01_10_191608_create_voteheads_table', 1),
 (13, '2018_01_10_191930_create_payments_table', 1),
 (14, '2018_01_17_063516_add_academic_year_to_students_table', 1),
@@ -229,7 +238,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2018_01_10_191823_create_invoices_table', 2),
 (20, '2018_01_10_191917_create_fees_table', 2),
 (21, '2018_05_01_170212_add_academic_year_to_students_table', 3),
-(22, '2018_01_10_191001_create_subjects_table', 4);
+(22, '2018_01_10_191001_create_subjects_table', 4),
+(23, '2018_05_04_182542_add_course_id_to_subjects', 5),
+(24, '2018_01_10_191403_create_exams_table', 6);
 
 -- --------------------------------------------------------
 
@@ -592,11 +603,19 @@ INSERT INTO `students` (`id`, `adm_no`, `fname`, `lname`, `dob`, `gender`, `reli
 
 CREATE TABLE `subjects` (
   `id` int(10) UNSIGNED NOT NULL,
+  `course_id` int(11) DEFAULT NULL,
   `subject_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subject_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `course_id`, `subject_code`, `subject_name`, `created_at`, `updated_at`) VALUES
+(1, 1, 'BIO101', 'Introduction to Botany', '2018-05-04 15:43:47', '2018-05-04 15:43:59');
 
 -- --------------------------------------------------------
 
@@ -641,7 +660,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `initials`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'John Doe', 'CD', 'john@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'm3DVSNthJGqZNBqVAHLTWaLcxd5VVru6oG2NzTRuerHhASx5gWxcl6AYFsBa', '2018-01-24 22:10:41', '2018-05-04 00:39:09'),
+(1, 'John Doe', 'CD', 'john@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'hpzS8aE7XnfxhvgpBgT7zlrOFsBMwrBzBshoWHfB2WKO63EXZZFcb4uNWLzj', '2018-01-24 22:10:41', '2018-05-04 00:39:09'),
 (3, 'Musah Crane', '', 'musa@yahoo.com', '$2y$10$PqrIrvIWIAfxiY3HACSXkOLpO/v38DzdETXDI/V6GwWzrGlAX.tgS', NULL, '2018-02-21 22:01:38', '2018-05-04 00:41:28');
 
 -- --------------------------------------------------------
@@ -856,7 +875,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -886,7 +905,7 @@ ALTER TABLE `lecturers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -904,7 +923,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -922,7 +941,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `terms`
@@ -934,7 +953,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `voteheads`

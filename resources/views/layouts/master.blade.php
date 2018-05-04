@@ -12,6 +12,17 @@
 
 <!-- Styles-->
 @include('layouts.styles')
+<style type="text/css">
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */
+  padding-left: -40px;
+}
+</style>
 <!-- End Styles-->
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
@@ -51,8 +62,8 @@
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
-<footer class="footer footer-static footer-light navbar-border">
-<p class="clearfix text-muted text-sm-center mb-0 px-2"><span class=" d-xs-block d-md-inline-block">&copy; {{ date('Y') }} <a href="#" target="_blank" class="text-bold-800 grey darken-2">Exam card processing system </a>, All rights reserved. </span></p>
+<footer class="footer footer-light navbar-border">
+<p class="clearfix text-muted mb-0 px-2"><span class=" d-xs-block d-md-inline-block">&copy; {{ date('Y') }} <a href="#" target="_blank" class="text-bold-800 grey darken-2">Exam card processing system </a>, All rights reserved. </span></p>
 </footer>
 <!--  ************* Javascripts ************ -->
 @include('layouts.scripts')

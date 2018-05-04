@@ -107,7 +107,7 @@
 <div class="form-group row">
 <label class="col-md-4 label-control" for="userinput2">Course</label>
 <div class="col-md-8">
-<select class="form-control" name="stream_id">
+<select class="form-control" name="course_id">
      <option  selected="selected" value="{{ $student->course_id }}"> {{ $student->course}}</option>
     @forelse($courses as $course)
     

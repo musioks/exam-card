@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Settings\Subject;
+use App\Settings\Course;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class SubjectController extends Controller
@@ -14,8 +16,12 @@ class SubjectController extends Controller
      */
     public function index()
     {
-         $subjects=Subject::all();
-        return view('settings.subjects',['subjects'=>$subjects]);
+         $subjects=DB::table('subjects')
+         ->join('courses','subjects.course_id','courses.id')
+         ->select('subjects.*','courses.course_name as course')
+         ->get();
+         $courses=Course::all();
+        return view('settings.subjects',['subjects'=>$subjects,'courses'=>$courses]);
     }
 
     /**

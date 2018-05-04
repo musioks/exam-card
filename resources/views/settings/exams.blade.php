@@ -27,18 +27,46 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h2 class="modal-title" id="myModalLabel28">Create Exam type</h2>
+        <h2 class="modal-title" id="myModalLabel28">Create Exam</h2>
       </div>
       <div class="modal-body">
 <form   method="post" action="{{ url('/settings/exams') }}" novalidate="">
-        {{ csrf_field() }}
-     <div class="form-group">
-        <label  for="stream">Exam Name <span class="text-danger">*</span></label>
-        <input type="text" name="exam_name" placeholder="Name..." class="form-control"  required required data-validation-required-message= "Enter exam name">
+        @csrf
+<div class="form-group">
+        <label  for="unit">Unit Name<span class="text-danger">*</span></label>
+        <select name="unit_id"  class="form-control"  required>
+            <option value="">--Select Unit--</option>
+@php
+$units=\DB::table('subjects')->get();
+@endphp
+@forelse($units as $unit)
+        <option value="{{$unit->id}}">{{$unit->subject_name}}</option>
+        @empty
+        <option value="">No data found!</option>
+@endforelse
+        </select>
         <div class="help-block font-small-3"></div>
     </div>
-
-     
+     <div class="form-group">
+        <label  for="stream">Exam Name <span class="text-danger">*</span></label>
+        <input type="text" name="name" placeholder="Name..." class="form-control"  required required data-validation-required-message= "Enter exam name">
+        <div class="help-block font-small-3"></div>
+    </div>
+<div class="form-group">
+<label class="label-control" for="userinput2">Exam date</label>
+<div class='input-group'>
+<input type='text' class="form-control singledate" name="exam_date" required >
+<span class="input-group-addon">
+    <span class="icon-calendar3"></span>
+</span>
+</div>
+<div class="help-block font-small-3"></div>
+</div>
+         <div class="form-group">
+        <label  for="stream">Exam out of ? <span class="text-danger">*</span></label>
+        <input type="number" name="out_of" placeholder="eg. 70" class="form-control"  required>
+        <div class="help-block font-small-3"></div>
+    </div>
   <div class="form-group clearfix">
   <button type="submit" class="btn btn-info float-sm-left">
     <i class="icon-send-o"></i> Submit
@@ -61,7 +89,10 @@
                             <thead>
         <tr class="">
             <th>#</th>
+            <th>Unit</th>
             <th>Exam Name</th>
+            <th>Exam Date</th>
+            <th>Out of</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -71,7 +102,10 @@
                @php $i++; @endphp
         <tr>
          <td>{{ $i }}</td>
-         <td>{{ $exam->exam_name }}</td>
+         <td>{{ $exam->unit }}</td>
+         <td>{{ $exam->name }}</td>
+         <td>{{ $exam->exam_date }}</td>
+         <td>{{ $exam->out_of }}</td>
          <td>
              <a href="" class="btn btn-danger" data-toggle="modal" data-target="#panel-modal-{{ $exam->id }}"><i class="icon-close"></i></a>
              <a href="" class="btn btn-success" data-toggle="modal" data-target="#update-modal-{{ $exam->id }}"><i class="icon-pencil"></i></a>
@@ -81,7 +115,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-          <h5>Are you sure you want to delete this exam type?</h5>
+          <h5>Are you sure you want to delete this exam?</h5>
                 </div>
                   <div class="modal-footer clearfix">
         <a href="{{ url('/settings/delete-exam/'.$exam->id) }}" class="btn btn-success float-sm-left">Okay</a>
@@ -104,11 +138,38 @@
      <form  role="form" id="update-form-{{$exam->id}}" method="post" action="{{ url('/settings/update-exam') }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
+<div class="form-group">
+        <label  for="unit">Unit Name</label>
+        <select name="unit_id"  class="form-control">
+@php
+$units=\DB::table('subjects')->get();
+@endphp
+@forelse($units as $unit)
+        <option value="{{$unit->id}}" {{($exam->unit_id==$unit->id) ? 'selected' : '' }}>{{$unit->subject_name}}</option>
+        @empty
+        <option value="">No data found!</option>
+@endforelse
+        </select>
+        <div class="help-block font-small-3"></div>
+    </div>
      <div class="form-group">
         <label  for="form-username">Exam Name</label>
-        <input type="text" name="exam_name" value="{{ $exam->exam_name }}" class=" form-control">
+        <input type="text" name="exam_name" value="{{ $exam->name }}" class=" form-control">
         <input type="hidden" name="id" value="{{ $exam->id }}">
-    </div>  
+    </div> 
+    <div class="form-group">
+<label class="label-control" for="userinput2">Exam date</label>
+<div class='input-group'>
+<input type='text' class="form-control singledate" name="exam_date" value="{{$exam->exam_date}}">
+<span class="input-group-addon">
+    <span class="icon-calendar3"></span>
+</span>
+</div>
+</div>
+         <div class="form-group">
+        <label  for="stream">Exam out of ?</label>
+         <input type="number" name="out_of" value="{{$exam->out_of}}" class="form-control">
+    </div> 
 </form>
       </div>
       <div class="modal-footer">

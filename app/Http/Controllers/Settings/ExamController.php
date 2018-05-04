@@ -14,10 +14,22 @@ class ExamController extends Controller
      */
     public function index()
     {
-        $exams=Exam::all();
+        $exams=\DB::table('exams')
+        ->join('subjects','exams.unit_id','subjects.id')
+        ->select('exams.*','subjects.subject_name as unit')
+        ->get();
         return view('settings.exams',['exams'=>$exams]);
     }
-
+     public function students()
+    {
+         $students=\DB::table('students')
+                       ->join('courses','students.course_id','courses.id')
+                       ->join('forms','students.form_id','forms.id')
+                       ->select('students.*','courses.course_name as course','forms.form')
+                       ->get();
+        return view('exams.students',['students'=>$students]);
+    }
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +49,9 @@ class ExamController extends Controller
     public function store(Request $request)
     {
          $this->validate($request, [
-       'exam_name'=>'required', 
+       'unit_id'=>'required', 
+       'name'=>'required', 
+       'exam_date'=>'required', 
         ]);
         Exam::create(array_merge($request->all()));
         return redirect()->back()->with('success','Exam has been created!');

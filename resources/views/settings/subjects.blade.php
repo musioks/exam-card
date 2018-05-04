@@ -32,7 +32,19 @@
       <div class="modal-body">
 <form   method="post" action="{{ url('/settings/units') }}" novalidate="">
         {{ csrf_field() }}
-  
+  <div class="form-group">
+        <label  for="Form">Course <span class="text-danger">*</span></label>
+   <select class="form-control" name="course_id" required data-validation-required-message= "you must choose a course!">
+    <option value="">--select course--</option>
+    @forelse($courses as $course)
+    
+    <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+    @empty
+    <option value="">No data found!</option>
+    @endforelse
+</select>
+        <div class="help-block font-small-3"></div>
+    </div>
      <div class="form-group">
         <label  for="Form">Unit Code <span class="text-danger">*</span></label>
         <input type="text" name="subject_code" placeholder="eg. BIO101" class="form-control"  required>
@@ -66,6 +78,7 @@
                             <thead>
         <tr class="">
             <th>#</th>
+            <th>Course</th>
             <th>Unit Code</th>
             <th>Unit Name</th>
             <th>Action</th>
@@ -77,6 +90,7 @@
                @php $i++; @endphp
         <tr>
          <td>{{ $i }}</td>
+         <td>{{ $subject->course }}</td>
          <td>{{ $subject->subject_code }}</td>
          <td>{{ $subject->subject_name }}</td>
          <td>
@@ -112,6 +126,15 @@
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
          <input type="hidden" name="id" value="{{$subject->id}}">
+         <select class="form-control" name="course_id">
+     <option  selected="selected" value="{{ $subject->course_id }}"> {{ $subject->course}}</option>
+    @forelse($courses as $course)
+    
+    <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+    @empty
+    <option value="">No data found!</option>
+    @endforelse
+</select>
      <div class="form-group">
         <label  for="Form">Unit Code</label>
         <input type="text" name="subject_code" value="{{$subject->subject_code}}" class="form-control">
