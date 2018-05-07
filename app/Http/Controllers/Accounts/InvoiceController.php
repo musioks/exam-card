@@ -74,7 +74,7 @@ public function invoices(){
                 'invoices'  =>  $invoices
               ]
             )
-     ->setPaper('a4', 'landscape');
+     ->setPaper('a4', 'portrait');
   return $pdf->stream('invoices.pdf');
  }
   	public function addinvoice(){

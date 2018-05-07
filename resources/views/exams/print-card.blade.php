@@ -38,9 +38,9 @@ clear: both;
 <body>
 <div class="header">
 <div class="column left">
-<img src="{{ public_path('/images/logo.png') ?? ''}}" width="100" height="90"></div>
+<img src="{{ public_path('/images/logo.png')}}" width="100" height="90"></div>
 <div class="column right"><h4>NAME: {{strtoupper($student->fname) ?? ''}} {{strtoupper($student->lname) ?? ''}}</h4>
-<h4> Course: {{$student->course ?? ''}},{{$setting->location ?? ''}}</h4>
+<h4> Course: {{$student->course ?? ''}}</h4>
 <h4><i>Academic Year:{{$student->academic_year ?? ''}}</i></h4>
 <h4><i>Session:Yr{{$balance->form_id ?? ''}}  Sem {{$balance->term_id ?? ''}}</i></h4>
 </div>

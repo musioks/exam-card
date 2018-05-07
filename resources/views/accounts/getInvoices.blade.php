@@ -3,14 +3,6 @@
 <head>
     <title>All Invoices</title>
      <style>
-    #header{
-      border: solid 1px black;
-      margin-bottom:3px;
-      
-    }
-    #header h1{
-      text-align:center;
-    }
     #layout {
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -39,11 +31,40 @@
     .alignright {
         float: right;
     }
+    .header{
+        margin-bottom: 80px;
+    }
+    .column {
+float: left;
+padding: 5px;
+height: 5px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+width: 100%;
+text-align: center;
+}
+
+.right {
+width: 100%;
+text-align: center;
+margin-top: 80px;
+}
+/* Clear floats after the columns */
+.header:after {
+content: "";
+display: table;
+clear: both;
+}
+
     </style>
 </head>
 <body>
-<div id="header">
-    <h1>Invoices List</h1>
+<div class="header">
+<div class="column left">
+<img src="{{ public_path('/images/jkuat.jpg')}}"></div>
+<div class="column right"><h1>Invoices List</h1>
+</div>
 </div>
 <table id="layout">
 <thead>
@@ -51,7 +72,7 @@
 <th>#</th>
 <th>Admission No</th>
 <th>Full Name</th>
-<th>Total Fees</th>
+<th>Amount Invoiced</th>
 <th>Date Invoiced</th>
 </tr>
 </thead>
