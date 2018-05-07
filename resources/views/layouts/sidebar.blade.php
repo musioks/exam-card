@@ -22,10 +22,11 @@
 <li class=" navigation-header"><span data-i18n="nav.category.pages">Examination</span><i data-toggle="tooltip" data-placement="right" data-original-title="Pages" class="icon-ellipsis icon-ellipsis"></i>
 </li>
 
-<li class="{{Request::is('exams/grading') ? 'active': ''}} nav-item"><a href="{{ url('/settings/exams') }}"><i class="icon-bookmark-o"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Create Exams</span></a>
-<li class="{{Request::is('exams/grading') ? 'active': ''}} nav-item"><a href="{{ url('/students/exams') }}"><i class="icon-user3"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Student Exams</span></a>
+<li class="{{Request::is('settings/exams') ? 'active': ''}} nav-item"><a href="{{ url('/settings/exams') }}"><i class="icon-bookmark-o"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Create Exams</span></a>
+<li class="{{Request::is('students/exams') ? 'active': ''}} nav-item"><a href="{{ url('/students/exams') }}"><i class="icon-users"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Student Exams</span></a>
 </li>
-
+<li class="{{Request::is('students/exam-cards') ? 'active': ''}} nav-item"><a href="{{ url('/students/exam-cards') }}"><i class="icon-settings"></i><span data-i18n="nav.scrumboard.main" class="menu-title">Generate Exam Cards</span></a>
+</li>
 
 <li class=" navigation-header"><span data-i18n="nav.category.ui">Accounts</span><i data-toggle="tooltip" data-placement="right" data-original-title="User Interface" class="icon-ellipsis icon-ellipsis"></i>
 </li>

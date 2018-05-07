@@ -76,6 +76,9 @@ Route::prefix('students')->middleware('auth')->group(function(){
     Route::post('/edit/{id}','Students\StudentController@update');
     Route::get('/delete/{id}','Students\StudentController@destroy');
     Route::get('/exams','Settings\ExamController@students');
+    Route::get('/exams/{id}','Settings\ExamController@student_exams');
+    Route::get('/exam-cards','Settings\ExamController@exam_cards');
+    Route::post('/print-card/{id}','Settings\ExamController@print_card');
 
 });
 // ************ End ****************************//

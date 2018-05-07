@@ -8,7 +8,7 @@
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header bg-teal bg-accent-4">
-                    <h4 class="card-title text-white">Students List</h4>
+                    <h4 class="card-title text-white">Student Individual Exams</h4>
                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
@@ -25,28 +25,20 @@
                             <thead>
         <tr class="">
             <th>#</th>
-            <th>Adm No.</th>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Class</th>
-            <th>Year</th>
-            <th>Action</th>
+            <th>Unit </th>
+            <th>Exam</th>
+            <th>Date of exam</th>
+            <th>Exam out of</th>
         </tr>
     </thead>
     <tbody>
-           @forelse($students as $i=> $student)
+           @forelse($exams as $i=> $exam)
         <tr>
          <td>{{ $i+1 }}</td>
-         <td>{{ $student->adm_no }}</td>
-         <td>{{ $student->fname }} {{ $student->lname }}</td>
-         <td>{{ $student->course }}</td>
-         <td>{{ $student->form }}</td>
-         <td>{{ $student->academic_year }}</td>
-         <td>
-             <a href="{{url('/students/exams/'.$student->id)}}" class="btn btn-success">View Exams</a>
-         </td>
-
-
+         <td>{{ $exam->unit }}</td>
+         <td>{{ $exam->name }}</td>
+         <td>{{ $exam->exam_date }}</td>
+         <td>{{ $exam->out_of }}</td>
         </tr>
           @empty
          <p>No data found</p>

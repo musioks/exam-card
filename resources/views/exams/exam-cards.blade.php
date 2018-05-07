@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="card">
-                <div class="card-header bg-teal bg-accent-4">
+                <div class="card-header bg-warning">
                     <h4 class="card-title text-white">Students List</h4>
                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                     <div class="heading-elements">
@@ -43,10 +43,12 @@
          <td>{{ $student->form }}</td>
          <td>{{ $student->academic_year }}</td>
          <td>
-             <a href="{{url('/students/exams/'.$student->id)}}" class="btn btn-success">View Exams</a>
+            <form action="{{url('/students/print-card/'.$student->id)}}" method="post">
+                @csrf
+                <input type="hidden" name="adm_no" value="{{$student->adm_no}}">
+        <button type="submit" class="btn btn-success">Print Exam Card</button>
+    </form>
          </td>
-
-
         </tr>
           @empty
          <p>No data found</p>
