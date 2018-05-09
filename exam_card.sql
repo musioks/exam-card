@@ -43,8 +43,8 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`id`, `course_name`, `course_code`, `duration`, `created_at`, `updated_at`) VALUES
 (1, 'Diploma in Nursing', 'DIN', '3 Years', '2018-04-29 19:51:44', '2018-04-29 19:51:44'),
-(0, 'Bsc.IT', '2202', '4 Years', '2018-05-02 12:02:29', '2018-05-02 12:02:29'),
-(0, 'diplma in ICT', '1231', '3 Years', '2018-05-03 06:31:56', '2018-05-03 06:31:56');
+(2, 'Bsc.IT', '2202', '4 Years', '2018-05-02 12:02:29', '2018-05-02 12:02:29'),
+(3, 'diplma in ICT', '1231', '3 Years', '2018-05-03 06:31:56', '2018-05-03 06:31:56');
 
 -- --------------------------------------------------------
 
@@ -133,7 +133,7 @@ CREATE TABLE `fees` (
 --
 
 INSERT INTO `fees` (`id`, `adm_no`, `votehead_id`, `term_id`, `year`, `amount`, `payment_type`, `created_at`, `updated_at`) VALUES
-(0, 'DIP/Nurs/211/2018', 0, 1, 2018, 4000, 'Cash', '2018-05-07 09:50:09', '2018-05-07 09:50:09');
+(1, 'DIP/Nurs/211/2018', 1, 1, 2018, 4000, 'Cash', '2018-05-07 09:50:09', '2018-05-07 09:50:09');
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ INSERT INTO `forms` (`id`, `form`, `created_at`, `updated_at`) VALUES
 (2, 'Second Yr', NULL, NULL),
 (3, 'Third Yr', NULL, NULL),
 (4, 'Fourth Yr', NULL, NULL),
-(0, 'sixth year', '2018-05-03 07:18:06', '2018-05-03 07:18:06');
+(5, 'sixth year', '2018-05-03 07:18:06', '2018-05-03 07:18:06');
 
 -- --------------------------------------------------------
 
@@ -663,15 +663,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `initials`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Test User', 'CD', 'chandydavid88@gmail.com', '$2y$10$7wVfst/HyY4GnG1QwRuqmebpMmPyd9YgPDuuaZpXWxDDBQlSFZ.ZS', 'SaK77la7uDA8GWgxw51czR3OxJW6qMDXy81EaeEBr4gUIhF18ApGYVczfzTm', '2018-01-24 22:10:41', '2018-05-04 05:38:56'),
-(0, 'Allan Generi', 'b', 'alan@gmail.com', '$2y$10$BtV.n6wvzroGIvn5FTPLlOc9pm19SnY/4orvNjZxm5hPn0u2ZviR.', NULL, '2018-05-01 16:19:15', '2018-05-01 16:19:15'),
-(0, 'Allan Generi', 'd', 'alan@gmail.com', '$2y$10$64nBq8l.XtE6lSIQ23vnFuBoUdZHW2gGaHRKoE4ReewhbDGqA.boe', NULL, '2018-05-02 05:32:51', '2018-05-02 05:32:51'),
-(0, 'Allan Generi', 'DDDD', 'alan@gmail.com', '$2y$10$fn227OxrQDmbQ5lUOL8bneCycqqxnT2hcAcfizOwJHtRbzDvj/9Xq', NULL, '2018-05-02 10:50:33', '2018-05-02 10:50:33'),
-(0, 'allan', 'aaaaa', 'alan@gmail.com', '$2y$10$Q0J73/QnBo382Cj.zSlPBO7rCGM7UNWLd2jWPHK0VAaKfTewVqOX2', NULL, '2018-05-03 06:15:43', '2018-05-03 06:15:43'),
-(0, 'generi', 'ggggg', 'generi@gmail.com', '$2y$10$tqnlReN7RedLhozp2yhbDujgaUHZz1m5h9QqP3bbqvRtGhG5OvkQ6', NULL, '2018-05-03 06:18:30', '2018-05-03 06:18:30'),
-(0, 'Brian', 'm', 'brian@gmail.com', '$2y$10$YFipXZYMO2mzvZjeY/TWFO6a2B/zBAIEhz9bIWnq0UukCrgeLHgOu', NULL, '2018-05-04 05:43:39', '2018-05-04 05:43:39'),
-(0, 'kangu', 'kaka', 'kangu@gmail.com', '$2y$10$eRrNlFF0bo/xhY7Zah/HRuX6CYpitTj5pyMA/1uGf9MB44CxDYBlO', NULL, '2018-05-06 14:56:54', '2018-05-06 14:56:54'),
-(0, 'danieloronje@gmail.com', 'daniel', 'danieloronje@gmail.com', '$2y$10$dShqixk4qqrJBCr9bKTnVetrtKeq/BKNcXxvpdNJqC7tlM8qhy6Cy', NULL, '2018-05-06 14:59:02', '2018-05-06 14:59:02'),
-(0, 'kangu1', 'kangu1', 'g@gmail.com', '$2y$10$eM9GdGmNmlRYbA2NJy4gVu9NtIFOfOj1wYJLRvGkcuPtxhmO6XEwO', NULL, '2018-05-06 15:15:52', '2018-05-06 15:15:52');
+(5, 'allan', 'aaaaa', 'alan@gmail.com', '$2y$10$Q0J73/QnBo382Cj.zSlPBO7rCGM7UNWLd2jWPHK0VAaKfTewVqOX2', NULL, '2018-05-03 06:15:43', '2018-05-03 06:15:43'),
+(6, 'generi', 'ggggg', 'generi@gmail.com', '$2y$10$tqnlReN7RedLhozp2yhbDujgaUHZz1m5h9QqP3bbqvRtGhG5OvkQ6', NULL, '2018-05-03 06:18:30', '2018-05-03 06:18:30'),
+(7, 'Brian', 'm', 'brian@gmail.com', '$2y$10$YFipXZYMO2mzvZjeY/TWFO6a2B/zBAIEhz9bIWnq0UukCrgeLHgOu', NULL, '2018-05-04 05:43:39', '2018-05-04 05:43:39'),
+(8, 'kangu', 'kaka', 'kangu@gmail.com', '$2y$10$eRrNlFF0bo/xhY7Zah/HRuX6CYpitTj5pyMA/1uGf9MB44CxDYBlO', NULL, '2018-05-06 14:56:54', '2018-05-06 14:56:54'),
+(9, 'danieloronje@gmail.com', 'daniel', 'danieloronje@gmail.com', '$2y$10$dShqixk4qqrJBCr9bKTnVetrtKeq/BKNcXxvpdNJqC7tlM8qhy6Cy', NULL, '2018-05-06 14:59:02', '2018-05-06 14:59:02'),
+(10, 'kangu1', 'kangu1', 'g@gmail.com', '$2y$10$eM9GdGmNmlRYbA2NJy4gVu9NtIFOfOj1wYJLRvGkcuPtxhmO6XEwO', NULL, '2018-05-06 15:15:52', '2018-05-06 15:15:52');
 
 -- --------------------------------------------------------
 
@@ -691,7 +688,7 @@ CREATE TABLE `voteheads` (
 --
 
 INSERT INTO `voteheads` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(0, 'CISCO', '2018-05-03 06:40:47', '2018-05-03 06:40:47');
+(1, 'CISCO', '2018-05-03 06:40:47', '2018-05-03 06:40:47');
 
 --
 -- Indexes for dumped tables

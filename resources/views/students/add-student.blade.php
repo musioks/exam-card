@@ -105,8 +105,7 @@
 <select class="form-control" name="form_id" required data-validation-required-message= "Select class">
     <option value="">--select class--</option>
     @forelse($forms as $form)
-    
-    <option value="{{ $form->id }}">{{ $form->form }}</option>
+        <option value="{{ $form->id }}">{{ $form->form }}</option>
     @empty
     <option value="">No data found!</option>
     @endforelse
@@ -122,7 +121,6 @@
 <select class="form-control" name="course_id" required data-validation-required-message= "you must choose a course!">
     <option value="">--select course--</option>
     @forelse($courses as $course)
-    
     <option value="{{ $course->id }}">{{ $course->course_name }}</option>
     @empty
     <option value="">No data found!</option>
